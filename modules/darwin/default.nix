@@ -7,6 +7,7 @@
     ./security.nix
     ./system-defaults.nix
     ./homebrew.nix
+    ./home-manager.nix
   ];
 
   # Used for backwards compatibility, please read the changelog before changing.

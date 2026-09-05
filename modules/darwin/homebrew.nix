@@ -19,7 +19,9 @@
   homebrew = {
     enable = true;
     brews = [ "mas" ];
-    casks = [ "the-unarchiver" ];
+    casks = [
+      "the-unarchiver"
+    ];
     # install pkgs from App Store, to get pkg id run: mas search <pkg-name>
     # masApps = {
     #   "<pkg-name>" = 123(id)
