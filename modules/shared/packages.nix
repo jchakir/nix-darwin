@@ -9,7 +9,7 @@
   # CLI tools for the user live in home/default.nix (home.packages).
   environment.systemPackages = with pkgs; [
     obsidian
-    firefox
+    # firefox
     brave
     curl
     wget

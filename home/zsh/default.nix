@@ -1,4 +1,4 @@
-# ~/nix-darwin/home/zsh.nix
+# ~/nix-darwin/home/zsh/default.nix
 { config, lib, pkgs, ... }:
 
 let
@@ -16,45 +16,6 @@ in
     pnpm
   ];
 
-  ### ── CLI programs managed by Home Manager ─────────────────────────
-  programs.bat.enable = true;
-  programs.btop.enable = true;
-
-  programs.bun = {
-    enable = true;
-    enableGitIntegration = false;
-  };
-
-  programs.dircolors = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-
-  programs.eza = {
-    enable = true;
-    # Keep the custom aliases below instead of HM's default aliases.
-    enableZshIntegration = false;
-  };
-
-  programs.fd.enable = true;
-  programs.go.enable = true;
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    vimAlias = true;
-  };
-
-  programs.ripgrep.enable = true;
-  programs.uv.enable = true;
-
-  programs.zellij = {
-    enable = true;
-    enableZshIntegration = true;
-    attachExistingSession = false;
-    exitShellOnExit = false;
-  };
-
   ### ── Env + PATH (was: export BUN_INSTALL/PNPM_HOME, path+=…) ──────
   home.sessionVariables = {
     BUN_INSTALL = "${config.home.homeDirectory}/.bun";
@@ -66,28 +27,6 @@ in
     "$HOME/.local/bin"
     "$HOME/go/bin"
   ];
-
-  ### ── Shell integrations (replace the eval "$(… init zsh)" lines) ──
-  programs.fzf = {
-    enable = true;
-    enableZshIntegration = true; # eval "$(fzf --zsh)"  (HM order 910)
-    defaultOptions = [ "--height 40%" "--layout=reverse" "--border" "--info=inline" ];
-    defaultCommand = "fd --type f --hidden --follow --exclude .git";
-    fileWidget.command = config.programs.fzf.defaultCommand; # FZF_CTRL_T_COMMAND
-    # older home-manager: fileWidgetCommand = config.programs.fzf.defaultCommand;
-  };
-
-  programs.zoxide = {
-    enable = true;
-    enableZshIntegration = true;
-    options = [ "--cmd" "cd" ]; # replaces `alias cd=z`, gives `cdi`
-  };
-
-  programs.oh-my-posh = {
-    enable = true;
-    enableZshIntegration = true;
-    configFile = "${config.xdg.configHome}/ohmyposh/custom-atomicBit.toml";
-  };
 
   ### ── Zsh ───────────────────────────────────────────────────────────
   programs.zsh = {
@@ -187,7 +126,7 @@ in
       find = "fd";
       top  = "btop";
 
-      zshrc  = "$EDITOR ~/nix-darwin/home/zsh.nix";
+      zshrc  = "$EDITOR ~/nix-darwin/home/zsh/default.nix";
       reload = "exec zsh";
       path   = "print -l $path";
       d      = "dirs -v";

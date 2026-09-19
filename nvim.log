@@ -1,0 +1,8 @@
+WRN 2026-09-07T01:27:52.747 ?.7270     server_start:197: Failed to start server: operation not permitted: /var/folders/gv/pyrmcztj1yxcc2hbl_ysk_0c0000gp/T/nvim.jaw/YBew2h/nvim.7270.0
+WRN 2026-09-07T01:27:52.774 ?.7267     server_start:197: Failed to start server: operation not permitted: /var/folders/gv/pyrmcztj1yxcc2hbl_ysk_0c0000gp/T/nvim.jaw/3uN0wy/nvim.7267.0
+WRN 2026-09-07T01:32:53.590 ?.9831     server_start:197: Failed to start server: operation not permitted: /var/folders/gv/pyrmcztj1yxcc2hbl_ysk_0c0000gp/T/nvim.jaw/gnLmjs/nvim.9831.0
+WRN 2026-09-07T01:33:06.871 ?.9897     server_start:197: Failed to start server: operation not permitted: /var/folders/gv/pyrmcztj1yxcc2hbl_ysk_0c0000gp/T/nvim.jaw/eu3kOH/nvim.9897.0
+WRN 2026-09-07T01:33:26.266 ?.9916     server_start:197: Failed to start server: operation not permitted: /var/folders/gv/pyrmcztj1yxcc2hbl_ysk_0c0000gp/T/nvim.jaw/ueqCbY/nvim.9916.0
+WRN 2026-09-07T01:49:59.491 ?.15145    server_start:197: Failed to start server: operation not permitted: /var/folders/gv/pyrmcztj1yxcc2hbl_ysk_0c0000gp/T/nvim.jaw/tAQ5F2/nvim.15145.0
+WRN 2026-09-07T01:49:59.525 ?.15151    server_start:197: Failed to start server: operation not permitted: /var/folders/gv/pyrmcztj1yxcc2hbl_ysk_0c0000gp/T/nvim.jaw/h1x0Vf/nix-darwin-test.15151.0
+WRN 2026-09-07T01:53:30.585 ?.16205    server_start:197: Failed to start server: operation not permitted: /var/folders/gv/pyrmcztj1yxcc2hbl_ysk_0c0000gp/T/nvim.jaw/Q5h5im/nvim.16205.0

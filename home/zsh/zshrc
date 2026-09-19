@@ -186,7 +186,7 @@ fi
 (( $+commands[fd]   )) && alias find='fd'
 (( $+commands[btop] )) && alias top='btop'
 
-alias zshrc='$EDITOR ~/nix-darwin/home/zshrc'
+alias zshrc='$EDITOR ~/nix-darwin/home/zsh/zshrc'
 alias reload='exec zsh'
 alias path='print -l $path'
 alias d='dirs -v'
@@ -199,7 +199,7 @@ if (( $+commands[fd] )); then
 fi
 
 (( $+commands[fzf] ))        && eval "$(fzf --zsh)"
-(( $+commands[oh-my-posh] )) && eval "$(oh-my-posh init zsh --config "$HOME/.config/ohmyposh/custom-atomicBit.toml")"
+(( $+commands[oh-my-posh] )) && eval "$(oh-my-posh init zsh --config "$HOME/.config/oh-my-posh/config.json")"
 (( $+commands[zoxide] ))     && eval "$(zoxide init zsh --cmd cd)" # --cmd cd replaces `alias cd=z` + gives `cdi` (interactive)
 (( $+commands[uv] ))         && eval "$(uv  generate-shell-completion zsh)"
 (( $+commands[uvx] ))        && eval "$(uvx --generate-shell-completion zsh)"
