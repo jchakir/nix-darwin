@@ -18,7 +18,7 @@
   home.packages = with pkgs; [
     font-awesome
     superfile
-    opencode-desktop
-    codex
+    # claude-code
+    rtk
   ];
 }

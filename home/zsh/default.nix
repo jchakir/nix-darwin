@@ -137,10 +137,12 @@ in
 
       # 500: early init — prepends, editor, and things compinit needs.
       (lib.mkOrder 500 ''
-        # Prepend so they win over system copies (HM runs typeset -U right after).
+        # Prepend so it wins over system copies (HM runs typeset -U right after).
         # NOTE: pnpm puts binaries directly in $PNPM_HOME — no /bin subdir.
-        path=("$BUN_INSTALL/bin" "$HOME/.kimi-code/bin" $path)
         [[ -d $PNPM_HOME ]] && path=("$PNPM_HOME" $path)
+        # bun itself comes from nix (programs.bun). Append its global-bin dir so
+        # a stale ~/.bun/bin/bun (from the standalone installer) can't shadow it.
+        path+=("$BUN_INSTALL/bin")
 
         # The (#q…) glob qualifier in completionInit needs EXTENDED_GLOB
         # *before* compinit; HM's setOptions only run afterwards (950).

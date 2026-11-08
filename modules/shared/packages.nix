@@ -9,12 +9,13 @@
   # CLI tools for the user live in home/default.nix (home.packages).
   environment.systemPackages = with pkgs; [
     obsidian
-    # firefox
-    brave
     curl
     wget
     zip
     unzip
     zsh
+    # oxker
+    podman
+    podman-compose
   ];
 }

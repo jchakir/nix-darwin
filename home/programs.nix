@@ -1,6 +1,13 @@
 { config, userConfig, ... }:
 
 {
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+    config.global.hide_env_diff = true;
+  };
+
   programs.git.enable = true;
   programs.git.settings.user = {
     name = userConfig.git.name;
@@ -10,7 +17,7 @@
   programs.ghostty = {
     enable = true;
     package = null;
-    clearDefaultKeybinds = true;
+    clearDefaultKeybinds = false;
     settings = {
       background = "000000";
       font-size = 17;
