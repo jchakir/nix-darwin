@@ -165,12 +165,6 @@ yOffset = 0.0
 [workspaceBar.iconOverrides]
 
 [[appRules]]
-bundleId = "com.openai.codex"
-id = "6A31F08A-4051-4354-B439-42F4C71894A3"
-minHeight = 600.0
-minWidth = 800.0
-
-[[appRules]]
 bundleId = "com.eltima.cmd1.pro.mas"
 id = "4BA546DA-2875-4BEF-B13F-1539E833B1A0"
 minHeight = 550.0
