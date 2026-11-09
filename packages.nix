@@ -55,7 +55,6 @@
     "neovim"
     "zellij"
     "oh-my-posh"
-    "claude-code"
   ];
 
   homebrew = {
@@ -70,7 +69,6 @@
       "claude"
       "telegram"
       "whatsapp"
-      "paseo"
       "vorssaint"
     ];
     cleanup = "uninstall";
