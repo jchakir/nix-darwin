@@ -10,15 +10,21 @@
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
   };
 
-  outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager, nix-homebrew }:
+  outputs = inputs@{ self, nix-darwin, ... }:
     let
+      system = "aarch64-darwin";
       userConfig = import ./user-config.nix;
+      # Where this checkout lives: feeds the Neovim link, which the zshrc alias follows.
+      repoPath = "${userConfig.home}/nix-darwin";
     in
     {
       darwinConfigurations.${userConfig.hostname} = nix-darwin.lib.darwinSystem {
-        specialArgs = { inherit inputs self userConfig; };
+        specialArgs = {
+          inherit inputs self userConfig system repoPath;
+          packagesFile = ./packages.nix;
+        };
         modules = [
-          ./hosts/jmac.nix
+          ./darwin
         ];
       };
     };

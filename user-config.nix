@@ -1,11 +1,17 @@
+# The author's own values; nothing else in the repo names the user, host or keys.
 rec {
   user = "jaw";
-  uid = 502; # must match the existing macOS account (dscl UniqueID), to get it run: id -u $(whoami)
   home = "/Users/${user}";
-  hostname = "jmac";
-  fullName = "Jawad"; # name in lock screen
+  hostname = "jmac"; # flake output name
+  fullName = "Jawad"; # shown on the lock screen
   git = {
     name = "Jawad CHAKIR";
     email = "jchakir.pro@gmail.com";
+  };
+  # Key file names under ~/.ssh
+  ssh = {
+    default = "id_ed25519";
+    github = "id_ed25519-github";
+    githubSag = "id_ed25519-github-sag";
   };
 }

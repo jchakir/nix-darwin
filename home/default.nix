@@ -1,4 +1,4 @@
-{ userConfig, pkgs, ... }:
+{ lib, pkgs, packagesFile, ... }:
 
 {
   imports = [
@@ -8,17 +8,12 @@
     ./zellij
     ./oh-my-posh
     ./nvim
-    # ./omniwm
   ];
 
-  home.username = userConfig.user;
-  home.homeDirectory = userConfig.home;
   home.stateVersion = "26.05";
 
-  home.packages = with pkgs; [
-    font-awesome
-    superfile
-    # claude-code
-    rtk
-  ];
+  # programs.<name>.enable for every `homeTools` entry in packages.nix.
+  programs = lib.genAttrs
+    (import packagesFile { inherit pkgs; }).homeTools
+    (_: { enable = true; });
 }

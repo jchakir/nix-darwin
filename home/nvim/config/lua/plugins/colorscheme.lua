@@ -1,6 +1,5 @@
 return {
 
-	-- ColorScheme:
 	{
 		"ray-x/starry.nvim",
 		opts = {
@@ -12,7 +11,7 @@ return {
 				darker = true,
 			},
 			disable = {
-				background = true, -- true: transparent background
+				background = true, -- transparent background
 			},
 			style = {
 				name = "monokai",
@@ -21,16 +20,15 @@ return {
 				deep_black = true,
 			},
 			custom_colors = {
-				variable = "#00ABB3", -- Bondi Blue,
+				variable = "#00ABB3",
 			},
 			custom_highlights = {
-				["@variable"] = { fg = "#A6CDC6" }, -- Set variables to a pink color
-				["@field"] = { fg = "#00ABB3" }, -- Set struct fields to Bondi Blue
+				["@variable"] = { fg = "#A6CDC6" },
+				["@field"] = { fg = "#00ABB3" },
 			},
 		},
 	},
 
-	-- Configure LazyVim to load the ColorScheme:
 	{
 		"LazyVim/LazyVim",
 		opts = {

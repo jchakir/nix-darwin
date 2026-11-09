@@ -1,7 +1,6 @@
 { userConfig, ... }:
 
 {
-  # system settings
   system.defaults = {
     dock.autohide = true;
     dock.mru-spaces = false;
@@ -12,7 +11,8 @@
     finder.FXRemoveOldTrashItems = true;
     finder.ShowStatusBar = true;
 
-    loginwindow.GuestEnabled = true;
+    # Set explicitly: deleting the key would leave the live value in place.
+    loginwindow.GuestEnabled = false;
     loginwindow.LoginwindowText = userConfig.fullName;
 
     NSGlobalDomain.AppleICUForce24HourTime = false;

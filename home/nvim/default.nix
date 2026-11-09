@@ -1,34 +1,22 @@
-{ config, lib, ... }:
+{ config, lib, repoPath, ... }:
 
+let
+  nvimConfig = "${repoPath}/home/nvim/config";
+in
 {
   programs.neovim = {
-    enable = true;
     defaultEditor = true;
     vimAlias = true;
   };
 
-  # The native module otherwise generates an init.lua for provider setup,
-  # which conflicts with the repository-managed config directory.
+  # Otherwise the module writes an init.lua inside the linked directory.
   xdg.configFile."nvim/init.lua".enable = lib.mkForce false;
 
-  home.activation.linkNvimConfig = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
-    nvimConfig=${lib.escapeShellArg "${config.home.homeDirectory}/nix-darwin/home/nvim/config"}
-    nvimTarget="$HOME/.config/nvim"
+  # Out-of-store link into the checkout: Lua edits need no rebuild.
+  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink nvimConfig;
 
-    run mkdir -p "$HOME/.config"
-
-    if [[ -L "$nvimTarget" ]]; then
-      currentTarget="$(readlink "$nvimTarget")"
-      if [[ "$currentTarget" != "$nvimConfig" ]]; then
-        run rm "$nvimTarget"
-      fi
-    elif [[ -e "$nvimTarget" ]]; then
-      errorEcho "Cannot link $nvimTarget: an existing file or directory is not a symlink."
-      exit 1
-    fi
-
-    if [[ ! -L "$nvimTarget" ]]; then
-      run ln -s "$nvimConfig" "$nvimTarget"
-    fi
+  # A wrong repoPath would leave a dangling link; fail instead.
+  home.activation.checkRepoPath = lib.hm.dag.entryBefore [ "writeBoundary" ] ''
+    [[ -d ${lib.escapeShellArg nvimConfig} ]] || { errorEcho ${lib.escapeShellArg "repoPath ${repoPath} has no home/nvim/config; fix repoPath in flake.nix"}; exit 1; }
   '';
 }

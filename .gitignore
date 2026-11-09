@@ -1,0 +1,9 @@
+# nix build outputs
+/result
+/result-*
+
+# logs
+*.log
+
+# macOS
+.DS_Store
